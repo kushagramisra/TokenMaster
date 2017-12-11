@@ -11,12 +11,35 @@ import java.net.URL;
 public class ServiceProvider
 {
     String name;
-    String address;
+    String ipv4;
+    String ipv6;
     String contact;
     String imageLocation;
-    URL url;
+    String endPoint;
     String email;
-    String id;
+
+    public ServiceProvider()
+    {
+        
+    }
+    
+    private ServiceProvider(ServiceProviderBuilder serviceProviderBuilder)
+    {
+        this.name = serviceProviderBuilder.name;
+        this.ipv4 = serviceProviderBuilder.ipv4;
+        this.ipv6 = serviceProviderBuilder.ipv6;
+        this.contact = serviceProviderBuilder.contact;
+        this.imageLocation = serviceProviderBuilder.imageLocation;
+        this.endPoint = serviceProviderBuilder.endPoint;
+        this.email = serviceProviderBuilder.email;
+    }
+    public String getIpv6() {
+        return ipv6;
+    }
+
+    public void setIpv6(String ipv6) {
+        this.ipv6 = ipv6;
+    }
 
     public String getName() {
         return name;
@@ -26,12 +49,12 @@ public class ServiceProvider
         this.name = name;
     }
 
-    public String getAddress() {
-        return address;
+    public String getIpv4() {
+        return ipv4;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setIpv4(String ipv4) {
+        this.ipv4 = ipv4;
     }
 
     public String getContact() {
@@ -50,12 +73,12 @@ public class ServiceProvider
         this.imageLocation = imageLocation;
     }
 
-    public URL getUrl() {
-        return url;
+    public String getEndPoint() {
+        return endPoint;
     }
 
-    public void setUrl(URL url) {
-        this.url = url;
+    public void setEndPoint(String endPoint) {
+        this.endPoint = endPoint;
     }
 
     public String getEmail() {
@@ -74,11 +97,57 @@ public class ServiceProvider
         }
     }
 
-    public String getId() {
-        return id;
-    }
+    public static class ServiceProviderBuilder
+    {
+         private String name;
+         private String ipv6;
+         private String ipv4;
+         private String endPoint;
+         private String email;
+         private String imageLocation;
+         private String contact;
 
-    public void setId(String id) {
-        this.id = id;
+
+        public ServiceProviderBuilder setName(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public ServiceProviderBuilder setIpv6(String ipv6) {
+            this.ipv6 = ipv6;
+            return this;
+        }
+
+        public ServiceProviderBuilder setIpv4(String ipv4) {
+            this.ipv4 = ipv4;
+            return this;
+        }
+
+        public ServiceProviderBuilder setEndPoint(String endPoint) {
+            this.endPoint = endPoint;
+            return this;
+        }
+
+        public ServiceProviderBuilder setEmail(String email) {
+            this.email = email;
+            return this;
+        }
+
+        public ServiceProviderBuilder setImageLocation(String imageLocation) {
+            this.imageLocation = imageLocation;
+            return this;
+        }
+
+        public ServiceProviderBuilder setContact(String contact) {
+            this.contact = contact;
+            return this;
+        }
+
+        public ServiceProvider build()
+        {
+            return new ServiceProvider(this);
+        }
+
+        
     }
 }

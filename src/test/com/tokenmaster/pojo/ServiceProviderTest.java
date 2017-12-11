@@ -18,12 +18,6 @@ public class ServiceProviderTest {
     }
 
     @Test
-    public void testIdSetter() {
-        serviceConsumer.setId("testid");
-        Assert.assertEquals(serviceConsumer.getId(), "testid");
-    }
-
-    @Test
     public void testEmailSetter() throws InvalidFormatException {
         serviceConsumer.setEmail("kush@xyz.com");
         Assert.assertEquals(serviceConsumer.getEmail(), "kush@xyz.com");
